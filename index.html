@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAFEIN - Coffee Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Added slide sidebar menu with dropdown functionality -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar-menu" id="sidebarMenu">
+        <div class="sidebar-header">
+            <h2 class="sidebar-logo">CAFEIN</h2>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <nav class="sidebar-nav">
+                <a href="#home" class="sidebar-link active" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#about" class="sidebar-link" data-section="about">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About</span>
+                </a>
+                <a href="#contact" class="sidebar-link" data-section="contact">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+                
+                <!-- Added dropdown menu for coffee categories -->
+                <div class="sidebar-dropdown">
+                    <button class="sidebar-dropdown-toggle">
+                        <i class="fas fa-coffee"></i>
+                        <span>Menu Categories</span>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </button>
+                    <div class="sidebar-dropdown-content">
+                        <button class="sidebar-dropdown-item active" data-category="all">
+                            <i class="fas fa-th-large"></i>
+                            <span>All Items</span>
+                        </button>
+                        <button class="sidebar-dropdown-item" data-category="hot-coffee">
+                            <i class="fas fa-mug-hot"></i>
+                            <span>Hot Coffee</span>
+                        </button>
+                        <button class="sidebar-dropdown-item" data-category="iced-coffee">
+                            <i class="fas fa-glass-whiskey"></i>
+                            <span>Iced Coffee</span>
+                        </button>
+                        <button class="sidebar-dropdown-item" data-category="frappe">
+                            <i class="fas fa-blender"></i>
+                            <span>Frappe</span>
+                        </button>
+                        <button class="sidebar-dropdown-item" data-category="italian-soda">
+                            <i class="fas fa-wine-glass"></i>
+                            <span>Italian Soda</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Updated navigation to include sidebar toggle -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="logo">CAFEIN</h1>
+            </div>
+            
+
+
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <!-- Removed mobile menu toggle as we now use dropdown -->
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <!-- Updated Home section to show all menu items instead of hero content -->
+        <section id="home" class="section active">
+            <!-- Category Navigation -->
+            <div class="category-nav" id="categoryNav">
+                <!-- Added dropdown for mobile category selection -->
+                <div class="category-dropdown-container">
+                    <button class="category-dropdown-toggle" id="categoryDropdownToggle">
+                        <span class="dropdown-text">All Categories</span>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </button>
+                    <div class="category-dropdown-menu" id="categoryDropdownMenu">
+                        <button class="category-dropdown-item active" data-category="all">All Items</button>
+                        <button class="category-dropdown-item" data-category="hot-coffee">Hot Coffee</button>
+                        <button class="category-dropdown-item" data-category="iced-coffee">Iced Coffee</button>
+                        <button class="category-dropdown-item" data-category="frappe">Frappe</button>
+                        <button class="category-dropdown-item" data-category="italian-soda">Italian Soda</button>
+                    </div>
+                </div>
+                <div class="nav-categories">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="hot-coffee">Hot Coffee</button>
+                    <button class="category-btn" data-category="iced-coffee">Iced Coffee</button>
+                    <button class="category-btn" data-category="frappe">Frappe</button>
+                    <button class="category-btn" data-category="italian-soda">Italian Soda</button>
+                </div>
+            </div>
+
+            <!-- Menu Content -->
+            <main class="main-content">
+                <div class="menu-section" id="menuSection">
+                    <h2 class="section-title" id="sectionTitle">All Items</h2>
+                    <div class="menu-grid" id="menuGrid">
+                        <!-- Hot Coffee Items -->
+                        <div class="menu-item fade-in" data-category="hot-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/hot-coffee/Espresso.png" alt="Espresso" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Espresso</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">1.30 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item fade-in" data-category="hot-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/hot-coffee/Americano.png" alt="Americano" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Americano</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.30 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">1.80 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="hot-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/hot-coffee/hot latte.png" alt="Hot Latte" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Hot Latte</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.30 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">1.90 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="hot-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="images/hot-coffee/hot cappuccino.png" alt="Hot Cappuccino" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Hot Cappuccino</h3>
+                                <!-- Fixed missing space in class attribute -->
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.40 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">1.90 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="hot-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="images/hot-coffee/hot mocha.png" alt="Hot Mocha" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Hot Mocha</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.55 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">1.95 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="hot-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/hot-coffee/hot milk green tea.png" alt="Hot Milk Green Tea" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Hot Milk Green Tea</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.55 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">2.10 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="hot-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/hot-coffee/hot vanilla latte.png" alt="Hot Vanilla" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Hot Vanilla</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.40 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">1.90 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="hot-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/hot-coffee/hot caramel latte.png" alt="Hot Caramel" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Hot Caramel</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.55 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">2.10 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="hot-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/hot-coffee/hot tea.png" alt="Hot Tea" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Hot Tea</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">1.20 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">0.95 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Iced Coffee Items -->
+                        <div class="menu-item fade-in" data-category="iced-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Iced-coffee/Iced Americano.png" alt="Iced Americano" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Iced Americano</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.95 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">1.75 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="iced-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Iced-coffee/Iced Latte.png" alt="Iced Latte" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Iced Latte</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.60 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">2.10 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="iced-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="images/Iced-coffee/Iced Cappucino.png" alt="Iced Cappucino" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Iced Cappuccino</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.75 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">2.15 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="iced-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Iced-coffee/Iced Mocha.png" alt="Iced Mocha" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Iced Mocha</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.65 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">2.25 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="iced-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Iced-coffee/Iced Milk Green Tea.png" alt="Iced Milk Green Tea" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Iced Milk Green Tea</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.55 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">2.10 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="iced-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Iced-coffee/Iced Chocolate.png" alt="Iced Chocolate" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Iced Chocolate</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.55 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">2.15 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="iced-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Iced-coffee/Iced Caramel.png" alt="Iced Caramel" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Iced Caramel</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.70 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">2.30 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="iced-coffee">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Iced-coffee/Iced Passion Cream.png" alt="Iced Passion Cream" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Iced Passion Cream</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">3.35 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Frappe Items -->
+                        <div class="menu-item fade-in" data-category="frappe">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Frappe/cappuccino frappe.png" alt="Cappucino Frappe" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Cappucino Frappe</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">3.00 $</span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="frappe">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Frappe/Vanilla Frappe.png" alt="Vanilla Frappe" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Vanilla Frappe</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">3.00 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="frappe">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Frappe/caramel frappe.png" alt="Caramel Frappe" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Caramel Frappe</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">3.00 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="frappe">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Frappe/Mocha Frappe.png" alt="Mocha Frappe" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Mocha Frappe</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">3.00 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="frappe">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Frappe/Milk green tea frappe.png" alt="Milk Green Tea Frappe" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Milk Green Tea Frappe</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">3.00 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="frappe">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Frappe/chocolate frappe.png" alt="Chocolate Frappe" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Chocolate Frappe</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">3.00 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item fade-in" data-category="frappe">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Frappe/blackberry frappe.png" alt="Blackberry Frappe" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Blackberry Frappe</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">3.00 $</span>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="frappe">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Frappe/Passion Frappe.png" alt="Passion Frappe" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Passion Frappe</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">3.00 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="frappe">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/Frappe/Mango frappe.png" alt="Mango Frappe" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Mango Frappe</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">3.00 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Italian Soda Items -->
+                        <div class="menu-item fade-in" data-category="italian-soda">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/italian-soda/Strawberry soda.png" alt="Strawberry Soda" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Strawberry Soda</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.60 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">2.30 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="italian-soda">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/italian-soda/Passion Soda.png" alt="Passion Soda" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Passion Soda</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.60 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">2.30 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="italian-soda">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/italian-soda/Blackberry Soda.png" alt="Blackberry Soda" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Blackberry Soda</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.60 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">2.30 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="italian-soda">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/italian-soda/blueberry soda.png" alt="Blueberry Soda" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Blueberry Soda</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.60 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">2.30 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-item fade-in" data-category="italian-soda">
+                            <div class="item-image">
+                                <!-- Updated to use the provided iced coffee image -->
+                                <img src="./images/italian-soda/Blueocean soda.png" alt="Blueocean Soda" />
+                            </div>
+                            <div class="item-content">
+                                <h3 class="item-name">Blueocean Soda</h3>
+                                <div class="item-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">M</span>
+                                        <span class="price-value">2.60 $</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">S</span>
+                                        <span class="price-value">2.30 $</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <!-- Added About Us section -->
+        <section id="about" class="section">
+            <div class="about-content">
+                <h2 class="section-title">About CAFEIN</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>Our Story</h3>
+                        <p>Founded in 2018, CAFEIN began as a small neighborhood coffee shop with a big dream: to create the perfect gathering place where exceptional coffee meets warm hospitality. What started as a passion project by coffee enthusiasts has grown into a beloved community hub.</p>
+                        
+                        <h3>Our Mission</h3>
+                        <p>We believe that great coffee has the power to bring people together. Every cup we serve is crafted with precision, using only the finest beans sourced directly from sustainable farms around the world. Our mission is to create memorable experiences, one sip at a time.</p>
+                        
+                        <h3>Quality Promise</h3>
+                        <p>From our signature espresso blends to our innovative seasonal drinks, we maintain the highest standards in every aspect of our craft. Our skilled baristas undergo extensive training to ensure every beverage meets our exacting standards of excellence.</p>
+                    </div>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-coffee"></i>
+                            <h4>Premium Coffee Beans</h4>
+                            <p>Sourced directly from sustainable farms, our beans are roasted fresh daily to ensure optimal flavor and aroma in every cup.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Eco-Friendly Practices</h4>
+                            <p>We're committed to sustainability with biodegradable cups, recycling programs, and supporting environmentally conscious suppliers.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-heart"></i>
+                            <h4>Community Focused</h4>
+                            <p>More than just a coffee shop, we're a community space where friends meet, students study, and professionals collaborate.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <h4>Award-Winning Service</h4>
+                            <p>Recognized for excellence in coffee quality and customer service, we're proud to be your neighborhood's favorite coffee destination.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Added Contact section -->
+        <section id="contact" class="section">
+            <div class="contact-content">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                      <iframe
+        src="https://maps.google.com/maps?q=Pursat%20Riverside%20Hotel&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+855 10 628 292</p>
+                                <p>+855 70 245 666</p>
+                                <p>+855 97 707 2019</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@pursatriversidehotel.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <div>
+                                <h4>Website</h4>
+                                <a href="https://www.pursatriversidehotel.com" target="_blank">www.pursatriversidehotel.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Hours</h4>
+                                <p>Mon - Sun: 7:00 AM - 10:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send us a message</h3>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Your Message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
