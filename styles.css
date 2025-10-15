@@ -1148,7 +1148,7 @@ body {
   }
 
   .item-name {
-    font-size: 1rem;
+    font-size: 15px;
     margin-bottom: 10px;
   }
 
@@ -1210,3 +1210,4 @@ body {
     transform: translateY(0);
   }
 }
+
